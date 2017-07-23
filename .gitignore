@@ -27,3 +27,6 @@ testing.js
 typings/
 yarn-debug.log*
 yarn-error.log*
+
+/validators.js
+/register.js

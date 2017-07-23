@@ -8,3 +8,4 @@ circle.yml
 node_modules
 rollup.config.js
 src
+/build.js
