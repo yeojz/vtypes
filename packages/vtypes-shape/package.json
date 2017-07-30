@@ -1,0 +1,24 @@
+{
+  "name": "vtypes-shape",
+  "version": "0.0.0",
+  "description": "Additional constraints for validate.js",
+  "main": "index.js",
+  "repository": "https://github.com/yeojz/vtypes/tree/master/packages/vtypes-shape",
+  "author": "Gerald Yeo <contact@fusedthought.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf coverage ./index.js",
+    "reset": "rimraf ./node_modules && npm run clean"
+  },
+  "keywords": [
+    "vtypes-modularized",
+    "vtypes",
+    "validate.js",
+    "validation",
+    "shape"
+  ],
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "validate.js": "^0.11.1"
+  }
+}

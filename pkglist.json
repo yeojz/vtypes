@@ -1,0 +1,28 @@
+{
+  "packages": [
+    "vtypes-utils",
+    "vtypes-invariant",
+
+    "vtypes-array",
+    "vtypes-arrayof",
+    "vtypes-bool",
+    "vtypes-different",
+    "vtypes-func",
+    "vtypes-immutable",
+    "vtypes-json",
+    "vtypes-objectof",
+    "vtypes-only",
+    "vtypes-requiredif",
+    "vtypes-requiredunless",
+    "vtypes-requiredwith",
+    "vtypes-requiredwithall",
+    "vtypes-requiredwithout",
+    "vtypes-requiredwithoutall",
+    "vtypes-shape",
+    "vtypes-size",
+    "vtypes-string",
+
+    "vtypes",
+    "vtypes-register"
+  ]
+}

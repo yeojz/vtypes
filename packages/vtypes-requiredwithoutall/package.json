@@ -1,0 +1,25 @@
+{
+  "name": "vtypes-requiredwithoutall",
+  "version": "0.0.0",
+  "description": "Additional constraints for validate.js",
+  "main": "index.js",
+  "repository": "https://github.com/yeojz/vtypes/tree/master/packages/vtypes-requiredwithoutall",
+  "author": "Gerald Yeo <contact@fusedthought.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf coverage ./index.js",
+    "reset": "rimraf ./node_modules && npm run clean"
+  },
+  "keywords": [
+    "vtypes-modularized",
+    "vtypes",
+    "validate.js",
+    "validation",
+    "requiredwithoutall"
+  ],
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "validate.js": "^0.11.1",
+    "vtypes-utils": "^0.0.0"
+  }
+}

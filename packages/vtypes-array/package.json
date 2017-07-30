@@ -1,0 +1,25 @@
+{
+  "name": "vtypes-array",
+  "version": "0.0.0",
+  "description": "Array checking constraint for validate.js",
+  "main": "index.js",
+  "repository": "https://github.com/yeojz/vtypes/tree/master/packages/vtypes-array",
+  "author": "Gerald Yeo <contact@fusedthought.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf coverage ./index.js",
+    "reset": "rimraf ./node_modules && npm run clean"
+  },
+  "keywords": [
+    "vtypes-modularized",
+    "vtypes",
+    "validate.js",
+    "validation",
+    "array"
+  ],
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "validate.js": "^0.11.1",
+    "vtypes-invariant": "^0.0.0"
+  }
+}

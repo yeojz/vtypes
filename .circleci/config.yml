@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  setup:
     working_directory: ~/vtypes
     docker:
       - image: circleci/node:6.11.1
@@ -19,8 +19,3 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage
-workflows:
-  version: 2
-  build-test:
-    jobs:
-      - test
