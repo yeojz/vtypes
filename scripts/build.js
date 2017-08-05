@@ -18,12 +18,12 @@ function build(bundlerOpt) {
   pkglist.packages.forEach(pkg => {
     console.log('building...', pkg);
 
+    let destFile = 'index.js';
     let config = {
       banner: `/**\n * ${pkg}\n * @version: ${lerna.version}\n **/`,
       format: bundlerOpt.format,
       entry: path.join(PACKAGE_DIR, pkg, 'src', 'index.js'),
-      dest: path.join(PACKAGE_DIR, pkg, 'index.js'),
-      external: ['validate.js'],
+      external: pkglist.external,
       plugins: [
         alias(ALIASES),
         nodeResolve()
@@ -35,7 +35,11 @@ function build(bundlerOpt) {
       config.globals = {
         'validate.js': 'validate'
       };
+
+      destFile = 'index.' + config.format + '.js';
     }
+
+    config.dest = path.join(PACKAGE_DIR, pkg, destFile);
 
     bundler(config, bundlerOpt);
   });

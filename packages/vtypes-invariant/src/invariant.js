@@ -3,10 +3,10 @@ import validate from 'validate.js';
 function invariant(value, options, key, attributes) {
   const opt = Object.assign(
     {
-      allowNil: true,
+      allowNil: false,
+      allowTruthy: false,
       message: 'invariant violation'
     },
-    this.options,
     options
   );
 
@@ -19,7 +19,8 @@ function invariant(value, options, key, attributes) {
     return 'has an invalid validator';
   }
 
-  if (opt.condition(value, key, attributes)) {
+  const isValid = opt.condition(value, key, attributes);
+  if (opt.allowTruthy ? isValid : isValid === true) {
     return void 0;
   }
 

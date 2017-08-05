@@ -3,31 +3,36 @@ import array from './array';
 
 validate.extend(validate.validators, {array});
 
-describe('vtypes-array', function() {
-  const check = {
+describe('array', function() {
+
+  const createValue = (value) => ({
+    value
+  });
+
+  const createCheck = (opt) => ({
     value: {
-      array: true
+      array: opt
     }
-  };
+  });
+
+  test('does not check for presence', function() {
+    const result = validate({}, createCheck(true));
+    expect(result).toBeUndefined();
+  });
+
+  test('does not run', function() {
+    const result = validate(createValue('random'), createCheck(false));
+    expect(result).toBeUndefined();
+  });
 
   test('incorrect type', function() {
-    const result = validate({ value: 'random' }, check);
+    const result = validate(createValue('random'), createCheck(true));
     expect(result.value).toHaveLength(1);
     expect(result.value[0]).toBe('Value must be of type array');
   });
 
-  test('does not run', function() {
-    const result = validate({ value: 'random' }, { value: { array: false } });
-    expect(result).toBeUndefined();
-  });
-
   test('correct type', function() {
-    const result = validate({ value: [] }, check);
-    expect(result).toBeUndefined();
-  });
-
-  test('does not check for presence', function() {
-    const result = validate({}, check);
+    const result = validate(createValue([]), createCheck(true));
     expect(result).toBeUndefined();
   });
 });

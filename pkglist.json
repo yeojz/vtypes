@@ -1,17 +1,21 @@
 {
+  "external": [
+    "validate.js",
+    "immutable"
+  ],
   "packages": [
-    "vtypes-utils",
-    "vtypes-invariant",
-
+    "vtypes",
     "vtypes-array",
     "vtypes-arrayof",
     "vtypes-bool",
     "vtypes-different",
     "vtypes-func",
     "vtypes-immutable",
+    "vtypes-invariant",
     "vtypes-json",
     "vtypes-objectof",
     "vtypes-only",
+    "vtypes-register",
     "vtypes-requiredif",
     "vtypes-requiredunless",
     "vtypes-requiredwith",
@@ -21,8 +25,6 @@
     "vtypes-shape",
     "vtypes-size",
     "vtypes-string",
-
-    "vtypes",
-    "vtypes-register"
+    "vtypes-utils"
   ]
 }

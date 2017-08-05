@@ -7,7 +7,7 @@
   "author": "Gerald Yeo <contact@fusedthought.com>",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf coverage index.js",
+    "clean": "rimraf coverage ./index.js ./index.*.js",
     "reset": "rimraf ./node_modules && npm run clean"
   },
   "keywords": [

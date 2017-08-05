@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  setup:
+  test:
     working_directory: ~/vtypes
     docker:
       - image: circleci/node:6.11.1
@@ -13,9 +13,16 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - run: npm run bootstrap
       - run: npm run clean
+      - run: npm run build
       - run: npm run coverage
       - run: npm run lint
       - store_artifacts:
           path: coverage
           prefix: coverage
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test

@@ -19,7 +19,7 @@ const format = FORMATS.reduce((final, key) => {
     return key.split('=')[1];
   }
   return final;
-}, 'umd')
+}, 'cjs')
 
 build({
   babel: args['--babel'],

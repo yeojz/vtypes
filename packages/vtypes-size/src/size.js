@@ -1,5 +1,6 @@
 import validate from 'validate.js';
 
+const DEFAULT_MESSAGE = 'has an incorrect size';
 function size(value, options, key) {
   if (!validate.isDefined(value)) {
     return void 0;
@@ -10,7 +11,7 @@ function size(value, options, key) {
       is: void 0,
       maximum: void 0,
       minimum: void 0,
-      message: 'has an incorrect size',
+      message: void 0,
       tooLong: 'is too long (maximum is %{count} characters)',
       tooShort: 'is too short (minimum is %{count} characters)',
       wrongLength: 'is the wrong length (should be %{count} characters)',
@@ -22,8 +23,8 @@ function size(value, options, key) {
   const length = value.size;
 
   if (!validate.isNumber(length)) {
-    validate.error(`Attribute ${key} has a non numeric value for 'length'`);
-    return opt.message || 'has an invalid validator';
+    validate.error(`Attribute ${key} has a non numeric value for 'size'`);
+    return opt.message || DEFAULT_MESSAGE;
   }
 
   if (validate.isNumber(opt.is) && length !== opt.is) {

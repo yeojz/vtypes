@@ -10,14 +10,16 @@
     "bootstrap": "lerna bootstrap",
     "build": "node ./scripts/build-cli.js",
     "build:es5": "node ./scripts/build-cli.js --babel",
-    "watch": "node ./scripts/watch-cli.js",
-    "clean": "rimraf coverage validators.js register.js",
+    "build:browser": "node ./scripts/build-cli.js --babel --format=umd",
+    "clean": "rimraf coverage lerna-debug.log && lerna run clean",
     "coverage": "jest --coverage",
     "coverage:upload": "codecov",
     "lint": "eslint --ext js src",
+    "reset": "lerna run reset",
     "start": "npm run build && npm run bootstrap",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "watch": "node ./scripts/watch-cli.js",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest --watch"
   },
   "keywords": [
     "validate",
@@ -31,7 +33,14 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "modulePaths": [
-      "<rootDir>/packages/*"
+      "<rootDir>/packages/**/src"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/scripts/*"
+    ],
+    "setupFiles": [
+      "<rootDir>/scripts/tests/no-console.js"
     ]
   },
   "devDependencies": {

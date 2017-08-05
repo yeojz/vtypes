@@ -1,37 +1,37 @@
 import validate from 'validate.js';
+import func from './func';
 
+validate.extend(validate.validators, {func});
 describe('func', function() {
-  const check = {
+
+  const createValue = (value) => ({
+    value,
+  });
+
+  const createCheck = (opt) => ({
     value: {
-      func: true
+      func: opt
     }
-  };
+  });
+
+  test('does not check for presence', function() {
+    const result = validate({}, createCheck(true));
+    expect(result).toBeUndefined();
+  });
+
+  test('does not run', function() {
+    const result = validate(createValue('random'), createCheck(false));
+    expect(result).toBeUndefined();
+  });
 
   test('incorrect type', function() {
-    const result = validate({ value: 'random' }, check);
+    const result = validate(createValue('random'), createCheck(true));
     expect(result.value).toHaveLength(1);
     expect(result.value[0]).toBe('Value must be of type function');
   });
 
-  test('does not run', function() {
-    const result = validate(
-      { value: 'random' },
-      {
-        value: {
-          func: false
-        }
-      }
-    );
-    expect(result).toBeUndefined();
-  });
-
   test('correct type', function() {
-    const result = validate({ value: () => {} }, check);
-    expect(result).toBeUndefined();
-  });
-
-  test('does not check for presence', function() {
-    const result = validate({}, check);
+    const result = validate(createValue(() => {}), createCheck(true));
     expect(result).toBeUndefined();
   });
 });

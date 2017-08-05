@@ -1,30 +1,43 @@
 import validate from 'validate.js';
+import bool from './bool';
+
+validate.extend(validate.validators, {bool});
 
 describe('bool', function() {
-  const check = {
+
+  const createValue = (value) => ({
+    value
+  });
+
+  const createCheck = (opt) => ({
     value: {
-      bool: true
+      bool: opt
     }
-  };
+  });
+
+  test('does not defaultCheck for presence', function() {
+    const result = validate({}, createCheck(true));
+    expect(result).toBeUndefined();
+  });
+
+  test('does not run', function() {
+    const result = validate(createValue('random'), createCheck(false));
+    expect(result).toBeUndefined();
+  });
 
   test('incorrect type', function() {
-    const result = validate({ value: 'random' }, check);
+    const result = validate(createValue('random'), createCheck(true));
     expect(result.value).toHaveLength(1);
     expect(result.value[0]).toBe('Value must be of type boolean');
   });
 
   test('takes in false values', function() {
-    const result = validate({ value: false }, check);
+    const result = validate(createValue(false), createCheck(true));
     expect(result).toBeUndefined();
   });
 
   test('takes in true values', function() {
-    const result = validate({ value: true }, check);
-    expect(result).toBeUndefined();
-  });
-
-  test('does not check for presence', function() {
-    const result = validate({}, check);
+    const result = validate(createValue(true), createCheck(true));
     expect(result).toBeUndefined();
   });
 });

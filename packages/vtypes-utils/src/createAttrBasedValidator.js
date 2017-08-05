@@ -1,4 +1,5 @@
 import validate from 'validate.js';
+import prettify from './prettify';
 function createAttrBasedValidator(condition, message) {
   function validator(value, options, key, attributes) {
 
@@ -7,22 +8,21 @@ function createAttrBasedValidator(condition, message) {
         truthy: false,
         message
       },
-      this.options,
       options
     );
 
     if (typeof opt.attribute === 'string' && opt.attribute) {
       validate.error(`Attribute ${key} has a falsy or non-string as it's "attribute" option`);
-      return 'has an invalid validator';
+      return prettify('has an invalid validator', key);
     }
 
     if (condition(value, opt, key, attributes)) {
       return void 0;
     }
 
-    return validate.format(opt.message, {
-      attribute: validate.prettify(opt.attribute),
-      attributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : '*'
+    return prettify(opt.message, key, {
+      oAttribute: validate.prettify(opt.attribute),
+      oAttributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : '*'
     });
   }
 

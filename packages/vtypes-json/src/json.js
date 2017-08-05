@@ -11,5 +11,5 @@ function jsonInvariant(value) {
 
 export default invariant.create(
   jsonInvariant,
-  'is expected to be a valid JSON string'
+  'must be a valid JSON string'
 );

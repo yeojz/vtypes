@@ -1,4 +1,5 @@
 import validate from 'validate.js';
+import {prettify} from 'vtypes-utils';
 
 function arrayOf(value, options, key) {
   if (!validate.isDefined(value)) {
@@ -8,38 +9,43 @@ function arrayOf(value, options, key) {
   const opt = Object.assign(
     {
       formatter: (v) => v,
-      message: `^One or more array values for ${key} is not valid`,
+      message: '^One or more array values for %{attribute} is not valid',
       messageKey: '_message',
-      notArray: 'is not of type array'
+      notArray: '%{attribute} is not of type array'
     },
-    this.options,
     options
   );
 
-  if (typeof opt.values !== 'object') {
+  if (typeof opt.contains !== 'object') {
     validate.error(`Attribute ${key} has a non-object defined as it's "values" option`);
-    return 'has an invalid validator';
   }
 
-  if (!Array.isArray(value)) {
+  if (typeof opt.contains !== 'object' || !Array.isArray(value)) {
     return opt.formatter({
-      [opt.messageKey]: opt.notArray
+      [opt.messageKey]: prettify(opt.notArray, key)
     });
   }
 
-  let result = value.reduce((obj, entry, idx) => {
-    const err = validate.single(entry, opt.values);
+  let result = value.reduce((accum, entry, idx) => {
+    const entryKey = `${key}[${idx}]`;
+    const err = validate({
+      [entryKey]: entry
+    }, {
+      [entryKey]: opt.contains
+    });
+
     if (validate.isDefined(err)) {
-      obj[idx] = err;
+      accum[idx + ''] = err[entryKey];
     }
-    return obj;
+
+    return accum;
   }, {});
 
-  if (Object.keys(result) < 1) {
+  if (Object.keys(result).length < 1) {
     return void 0;
   }
 
-  result[opt.messageKey] = opt.message;
+  result[opt.messageKey] = prettify(opt.message, key)
   return opt.formatter(result);
 }
 

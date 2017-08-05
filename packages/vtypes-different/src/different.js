@@ -15,7 +15,6 @@ function different(value, options, key, attributes, globalOptions) {
       comparator,
       message: 'is not different from %{attribute}'
     },
-    this.options,
     options
   );
 

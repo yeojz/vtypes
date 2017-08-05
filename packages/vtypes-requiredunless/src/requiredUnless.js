@@ -1,6 +1,5 @@
 import validate from 'validate.js';
-import invariant from 'vtypes-invariant';
-import utils from 'vtypes-utils';
+import {createAttrBasedValidator} from 'vtypes-utils';
 
 function condition(value, opt, key, attributes) {
   const otherValue = validate.getDeepObjectValue(attributes, opt.attribute);
@@ -19,7 +18,7 @@ function condition(value, opt, key, attributes) {
   return validate.isDefined(otherValue) ? true : hasValue;
 }
 
-export default utils.createAttrBasedValidator(
+export default createAttrBasedValidator(
   condition,
-  'required when %{attribute} is not present or equal to %{attributeValue}'
+  'required when %{optionAttribute} is not present or equal to %{optionAttributeValue}'
 );

@@ -1,4 +1,5 @@
 import validate from 'validate.js';
+import prettify from './prettify';
 function createAttrArrayBasedValidator(condition, message) {
   function validator(value, options, key, attributes) {
 
@@ -7,21 +8,20 @@ function createAttrArrayBasedValidator(condition, message) {
         truthy: false,
         message
       },
-      this.options,
       options
     );
 
     if (!Array.isArray(opt.attributes)) {
       validate.error(`Attribute ${key} has a non-array as it's "attributes" option`);
-      return 'has an invalid validator';
+      return prettify('has an invalid validator', key);
     }
 
     if (condition(value, opt, key, attributes)) {
       return void 0;
     }
 
-    return validate.format(opt.message, {
-      attributes: validate.prettify(opt.attributes)
+    return prettify(opt.message, key, {
+      oAttributes: validate.prettify(opt.attributes)
     });
   }
 

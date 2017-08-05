@@ -7,7 +7,7 @@
   "author": "Gerald Yeo <contact@fusedthought.com>",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf coverage ./index.js",
+    "clean": "rimraf coverage ./index.js ./index.*.js",
     "reset": "rimraf ./node_modules && npm run clean"
   },
   "keywords": [
@@ -15,11 +15,10 @@
     "vtypes",
     "validate.js",
     "validation",
-    "objectof"
+    "shape"
   ],
   "devDependencies": {
     "rimraf": "^2.6.1",
-    "validate.js": "^0.11.1",
-    "vtypes-invariant": "^0.0.0"
+    "validate.js": "^0.11.1"
   }
 }
