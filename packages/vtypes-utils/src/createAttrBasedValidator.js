@@ -5,7 +5,7 @@ function createAttrBasedValidator(condition, message) {
 
     const opt = Object.assign(
       {
-        truthy: false,
+        allowTruthy: false,
         message
       },
       options
@@ -21,8 +21,8 @@ function createAttrBasedValidator(condition, message) {
     }
 
     return prettify(opt.message, key, {
-      oAttribute: validate.prettify(opt.attribute),
-      oAttributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : '*'
+      attribute: validate.prettify(opt.attribute),
+      attributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : '*'
     });
   }
 

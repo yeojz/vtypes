@@ -42,9 +42,9 @@ For more examples, check out the test files in this package's [source][src] fold
 
 ## Available Options
 
-| name    | type   | default                                | description   |
-| ------- | ------ | -------------------------------------- | ------------- |
-| message | string | `%{attribute} must be of type function` | Error message |
+| name    | type   | default                    | description   |
+| ------- | ------ | -------------------------- | ------------- |
+| message | string | `must be of type function` | Error message |
 
 ## License
 `vtypes-func` is [MIT licensed][license]

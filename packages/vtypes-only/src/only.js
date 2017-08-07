@@ -2,13 +2,17 @@ import validate from 'validate.js';
 import {createAttrArrayBasedValidator} from 'vtypes-utils';
 
 function condition(value, opt, key, attributes) {
+  if (!validate.isDefined(value)) {
+    return true;
+  }
+
   const hasValue = opt.attributes.some(otherKey => {
     const otherValue = validate.getDeepObjectValue(attributes, otherKey);
-    return opt.truthy ? !!otherValue : validate.isDefined(otherValue);
+    return opt.allowTruthy ? !!otherValue : validate.isDefined(otherValue);
   });
 
   if (hasValue) {
-    return opt.truthy ? !!value : validate.isDefined(value);
+    return opt.allowTruthy ? !!value : validate.isDefined(value);
   }
 
   return true;

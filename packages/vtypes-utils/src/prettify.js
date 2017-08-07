@@ -3,7 +3,7 @@ import validate from 'validate.js';
 function prettify(message, key, others = {}) {
   return validate.capitalize(
     validate.format(message, Object.assign({
-      attribute: validate.prettify(key)
+      key: validate.prettify(key)
     }, others)
   ));
 }

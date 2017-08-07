@@ -68,12 +68,12 @@ For more examples, check out the test files in this package's [source][src] fold
 
 ## Available Options
 
-| name        | type     | default                            | description                                                                      |
-| ----------- | -------- | ---------------------------------- | -------------------------------------------------------------------------------- |
-| allowNil    | boolean  | `false`                            | Error message                                                                    |
-| allowTruthy | boolean  | `false`                            | Allow the conditional function to return truthy values instead of strict boolean |
-| condition   | function | `undefined`                        | Returns a truthy value for validation to pass                                    |
-| message     | string   | `%{attribute} invariant violation` | Error message                                                                    |
+| name        | type     | default               | description                                                                      |
+| ----------- | -------- | --------------------- | -------------------------------------------------------------------------------- |
+| allowNil    | boolean  | `false`               | Error message                                                                    |
+| allowTruthy | boolean  | `false`               | Allow the conditional function to return truthy values instead of strict boolean |
+| condition   | function | `undefined`           | Returns a truthy value for validation to pass                                    |
+| message     | string   | `invariant violation` | Error message                                                                    |
 
 The `condition` function takes in `(value, key, attributes)` of the validator.
 

@@ -5,7 +5,7 @@ function createAttrArrayBasedValidator(condition, message) {
 
     const opt = Object.assign(
       {
-        truthy: false,
+        allowTruthy: false,
         message
       },
       options
@@ -21,7 +21,7 @@ function createAttrArrayBasedValidator(condition, message) {
     }
 
     return prettify(opt.message, key, {
-      oAttributes: validate.prettify(opt.attributes)
+      attributes: validate.prettify(opt.attributes)
     });
   }
 

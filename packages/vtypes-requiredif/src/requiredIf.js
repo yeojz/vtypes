@@ -3,7 +3,8 @@ import {createAttrBasedValidator} from 'vtypes-utils';
 
 function condition(value, opt, key, attributes) {
   const otherValue = validate.getDeepObjectValue(attributes, opt.attribute);
-  const hasValue = opt.truthy
+
+  const hasValue = opt.allowTruthy
     ? !!otherValue
     : validate.isDefined(otherValue);
 
@@ -11,7 +12,7 @@ function condition(value, opt, key, attributes) {
     return otherValue === opt.attributeValue ? hasValue : true;
   }
 
-  if (opt.truthy) {
+  if (opt.allowTruthy) {
     return otherValue ? hasValue : true;
   }
 
@@ -20,5 +21,5 @@ function condition(value, opt, key, attributes) {
 
 export default createAttrBasedValidator(
   condition,
-  'required when %{optionAttribute} is present and equal to %{optionAttributeValue}'
+  'required when %{oAttribute} is present and equal to %{oAttributeValue}'
 );

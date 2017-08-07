@@ -76,12 +76,12 @@ For more examples, check out the test files in this package's [source][src] fold
 
 ## Available Options
 
-| name       | type     | default                                                   | description                                   |
-| ---------- | -------- | --------------------------------------------------------- | --------------------------------------------- |
-| formatter  | function | `(v) => v`                                                | Allows processing of errors before it returns |
-| message    | string   | `^One or more array values for %{attribute} is not valid` | Error message                                 |
-| messageKey | string   | `_message`                                                | key in return object for the summary message  |
-| notArray   | string   | `%{attribute} is not of type object`                      | Error when value is not an object             |
+| name       | type     | default                                             | description                                   |
+| ---------- | -------- | --------------------------------------------------- | --------------------------------------------- |
+| formatter  | function | `(v) => v`                                          | Allows processing of errors before it returns |
+| message    | string   | `^One or more array values for %{key} is not valid` | Error message                                 |
+| messageKey | string   | `_message`                                          | key in return object for the summary message  |
+| notArray   | string   | `%{key} is not of type object`                      | Error when value is not an object             |
 
 ## License
 

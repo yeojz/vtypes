@@ -9,9 +9,9 @@ function objectOf(value, options, key) {
   const opt = Object.assign(
     {
       formatter: (v) => v,
-      message: '^One or more object values for %{attribute} is not valid',
+      message: '^One or more object values for %{key} is not valid',
       messageKey: '_message',
-      notObject: '%{attribute} is not of type object'
+      notObject: '%{key} is not of type object'
     },
     options
   )

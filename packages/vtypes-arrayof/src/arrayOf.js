@@ -9,9 +9,9 @@ function arrayOf(value, options, key) {
   const opt = Object.assign(
     {
       formatter: (v) => v,
-      message: '^One or more array values for %{attribute} is not valid',
+      message: '^One or more array values for %{key} is not valid',
       messageKey: '_message',
-      notArray: '%{attribute} is not of type array'
+      notArray: '%{key} is not of type array'
     },
     options
   );
