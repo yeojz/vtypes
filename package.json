@@ -39,9 +39,15 @@
       "/node_modules/",
       "<rootDir>/scripts/*"
     ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/scripts/*"
+    ],
     "setupFiles": [
       "<rootDir>/scripts/tests/no-console.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "vtypes-(.*)": "<rootDir>/packages/vtypes-$1/src"
+    }
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
