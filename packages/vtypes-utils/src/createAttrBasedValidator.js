@@ -21,8 +21,8 @@ function createAttrBasedValidator(condition, message) {
     }
 
     return prettify(opt.message, key, {
-      attribute: validate.prettify(opt.attribute),
-      attributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : '*'
+      attribute: validate.prettify(opt.attribute) || '',
+      attributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : ''
     });
   }
 

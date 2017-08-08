@@ -22,7 +22,7 @@ function shape(value, options, key) {
 
   if (typeof opt.values !== 'object' || typeof value !== 'object') {
     return opt.formatter({
-      [opt.messageKey]: prettify(opt.notObject, key)
+      [opt.messageKey]: prettify(opt.notObject, key, {}, {capitalize: true})
     });
   }
 
@@ -32,7 +32,7 @@ function shape(value, options, key) {
     return void 0;
   }
 
-  result[opt.messageKey] = prettify(opt.message, key);
+  result[opt.messageKey] = prettify(opt.message, key, {}, {capitalize: true});
   return opt.formatter(result);
 }
 

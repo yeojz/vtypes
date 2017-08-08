@@ -1,8 +1,10 @@
 import validate from 'validate.js';
-import {createAttrArrayBasedValidator} from 'vtypes-utils';
+import { createAttrArrayBasedValidator } from 'vtypes-utils';
 
 function condition(value, opt, key, attributes) {
-  if (!validate.isDefined(value)) {
+  const currentValue = opt.allowTruthy ? !!value : validate.isDefined(value);
+
+  if (!currentValue) {
     return true;
   }
 
@@ -11,14 +13,10 @@ function condition(value, opt, key, attributes) {
     return opt.allowTruthy ? !!otherValue : validate.isDefined(otherValue);
   });
 
-  if (hasValue) {
-    return opt.allowTruthy ? !!value : validate.isDefined(value);
-  }
-
-  return true;
+  return hasValue ? false : true;
 }
 
 export default createAttrArrayBasedValidator(
   condition,
-  'must be the only key present. Other attributes (%{oAttributes}) should not be present'
+  'must be the only key present. Other attributes (%{attributes}) should not be present'
 );

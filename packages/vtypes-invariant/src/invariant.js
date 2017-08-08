@@ -5,7 +5,8 @@ function invariant(value, options, key, attributes) {
     {
       allowNil: false,
       allowTruthy: false,
-      message: 'invariant violation'
+      message: 'invariant violation',
+      notValidator: 'has an invalid validator'
     },
     options
   );
@@ -16,7 +17,7 @@ function invariant(value, options, key, attributes) {
 
   if (typeof opt.condition !== 'function') {
     validate.error(`Attribute ${key} has a non-function as a condition`);
-    return 'has an invalid validator';
+    return opt.notValidator;
   }
 
   const isValid = opt.condition(value, key, attributes);

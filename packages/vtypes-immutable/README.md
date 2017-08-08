@@ -12,7 +12,7 @@
 
 ## About
 
-The immutable validator validates that are value is immutable.
+The `immutable` validator attempts to make sure the field is a valid immutable value.
 The API for checking immutability is referenced off [immutable.js](https://github.com/facebook/immutable-js).
 
 If no parser is provided, then best effort guess if a value is immutable

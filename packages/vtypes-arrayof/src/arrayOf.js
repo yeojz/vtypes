@@ -22,7 +22,7 @@ function arrayOf(value, options, key) {
 
   if (typeof opt.contains !== 'object' || !Array.isArray(value)) {
     return opt.formatter({
-      [opt.messageKey]: prettify(opt.notArray, key)
+      [opt.messageKey]: prettify(opt.notArray, key, {}, {capitalize: true})
     });
   }
 
@@ -45,7 +45,7 @@ function arrayOf(value, options, key) {
     return void 0;
   }
 
-  result[opt.messageKey] = prettify(opt.message, key)
+  result[opt.messageKey] = prettify(opt.message, key, {}, {capitalize: true})
   return opt.formatter(result);
 }
 

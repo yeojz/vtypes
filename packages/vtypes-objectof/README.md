@@ -12,7 +12,8 @@
 
 ## About
 
-Validates values of all keys in an object against the predefined validation rule.
+The `objectOf` validator attempts to make sure that the value of all keys
+in an object conforms to the predefined format.
 
 ## Installation
 

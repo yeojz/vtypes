@@ -12,7 +12,8 @@
 
 ## About
 
-Validates values of all keys in an object against the predefined validation rule.
+The `arrayOf` validator attempts to make sure the all values in the array
+conforms to a predefined rule.
 
 ## Installation
 

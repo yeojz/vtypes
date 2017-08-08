@@ -19,7 +19,7 @@
     "start": "npm run build && npm run bootstrap",
     "watch": "node ./scripts/watch-cli.js",
     "test": "NODE_ENV=test jest",
-    "test:watch": "NODE_ENV=test jest --watch"
+    "test:watch": "NODE_ENV=test jest --watch --coverage"
   },
   "keywords": [
     "validate",

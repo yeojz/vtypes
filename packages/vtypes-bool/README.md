@@ -3,10 +3,15 @@
 > "boolean" validation for validate.js
 
 [![npm package][npm-badge]][npm-link]
+
+- [About](#about)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Options](#available-options)
 - [License](#license)
+
+## About
+The `bool` validator attempts to make sure the field is a valid boolean.
 
 ## Installation
 

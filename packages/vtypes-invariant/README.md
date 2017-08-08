@@ -13,10 +13,14 @@
 
 ## About
 
-The invariant validator brings the concept of the `invariant` library to `validate.js`, allowing you to
-define a function that has to return a strict `true` value for it to be valid.
+The `invariant` validator allows you to define a condition/function
+that has to evaluate to a strict `true` value for it to be valid.
 
-**Note**: This validator will always be invoked by default. Thus it will check even when value is `undefined` or `null`.
+The concept is similar to the [invariant](https://www.npmjs.com/package/invariant) library,
+but for `validate.js`.
+
+**Note**: This validator will always be invoked by default.
+Thus it will check even when value is `undefined` or `null`.
 You can disable this behaviour by passing `allowNil: true`;
 
 ## Installation

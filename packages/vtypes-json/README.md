@@ -4,10 +4,15 @@
 
 [![npm package][npm-badge]][npm-link]
 
+- [About](#about)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Options](#available-options)
 - [License](#license)
+
+## About
+
+The `json` validator attempts to make sure the input is a valid json.
 
 ## Installation
 

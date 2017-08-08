@@ -4,10 +4,15 @@
 
 [![npm package][npm-badge]][npm-link]
 
+- [About](#about)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Options](#available-options)
 - [License](#license)
+
+## About
+
+The `array` validator attempts to make sure the field is a valid array.
 
 ## Installation
 
