@@ -22,12 +22,12 @@ describe('immutable', function() {
   });
 
   test('does not run', function() {
-    const result = validate(createValue('random'), createCheck(false));
+    const result = validate(createValue('foo'), createCheck(false));
     expect(result).toBeUndefined();
   });
 
   test('no library - incorrect value', function() {
-    const result = validate(createValue('random'), createCheck(true));
+    const result = validate(createValue('foo'), createCheck(true));
     expect(result.value).toHaveLength(1);
     expect(result.value[0]).toBe('Value is not an immutable value');
   });
@@ -38,7 +38,7 @@ describe('immutable', function() {
   });
 
   test('with library - incorrect value (invalid type)', function() {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       library: Immutable,
       type: 'default-custom'
     }));
@@ -47,7 +47,7 @@ describe('immutable', function() {
   });
 
   test('with library - incorrect value (valid type)', function() {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       library: Immutable,
       type: 'List'
     }));

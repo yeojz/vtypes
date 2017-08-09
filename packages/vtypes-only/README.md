@@ -34,10 +34,10 @@ validate.validators.only = only;
 ## Usage
 
 ```js
-validate({}, {attr: {objectof: true}});
+validate({}, {attr: {only: true}});
 // => undefined
 
-validate({attr: {}}, {attr: {objectof: false}});
+validate({attr: {}}, {attr: {only: false}});
 // => undefined
 ```
 
@@ -45,31 +45,21 @@ validate({attr: {}}, {attr: {objectof: false}});
 const value = {
   attr: {
     a: '',
-    b: 't2'
+    b: 't2',
+    c: false
   }
 };
 
 const constraints = {
   attr: {
-    objectof: {
-      contains: { presence: true, length: {is: 3} }
+    only: {
+      attributes: ['b', 'c']
     }
   }
 };
 
 validate(value, constraints);
-// {
-//   attr: {
-//     _message: '^One or more object values for value is not valid',
-//     a: [
-//       'A can\'t be blank',
-//       'A is the wrong length (should be 3 characters)'
-//     ],
-//     b: [
-//       'B is the wrong length (should be 3 characters)'
-//     ]
-//   }
-// };
+// {attr: ['Value must be the only key with value present. Other attributes (v2, v3) should not be present']}
 
 ```
 
@@ -77,14 +67,15 @@ For more examples, check out the test files in this package's [source][src] fold
 
 ## Available Options
 
-| name    | type   | default                                                                                  | description   |
-| ------- | ------ | ---------------------------------------------------------------------------------------- | ------------- |
-| message | string | `'must be the only key present. Other attributes (%{attributes}) should not be present'` | Error message |
+| name        | type    | default                                                                                | description                                                                         |
+| ----------- | ------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| allowTruthy | boolean | false                                                                                  | Checks for truthy values instead of checking only for `null` and `undefined` values |
+| message     | string  | `must be the only key present. Other attributes (%{attributes}) should not be present` | Error message                                                                       |
 
 
 ## License
 
-`vtypes-objectof` is [MIT licensed][license]
+`vtypes-only` is [MIT licensed][license]
 
 [npm-badge]: https://img.shields.io/npm/v/vtypes-only.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes-only

@@ -21,7 +21,7 @@ describe('string', function() {
   });
 
   test('does not run', function() {
-    const result = validate(createValue('random'), createCheck(false));
+    const result = validate(createValue('foo'), createCheck(false));
     expect(result).toBeUndefined();
   });
 
@@ -32,7 +32,7 @@ describe('string', function() {
   });
 
   test('correct type', function() {
-    const result = validate(createValue('random'), createCheck(true));
+    const result = validate(createValue('foo'), createCheck(true));
     expect(result).toBeUndefined();
   });
 });

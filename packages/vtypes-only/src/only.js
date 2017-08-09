@@ -18,5 +18,5 @@ function condition(value, opt, key, attributes) {
 
 export default createAttrArrayBasedValidator(
   condition,
-  'must be the only key present. Other attributes (%{attributes}) should not be present'
+  'must be the only key with value present. Other attributes (%{attributes}) should not be present'
 );

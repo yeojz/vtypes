@@ -29,12 +29,12 @@ describe('invariant', function() {
   });
 
   test('does not run', function() {
-    const result = validate(createValue('random'), createCheck(false));
+    const result = validate(createValue('foo'), createCheck(false));
     expect(result).toBeUndefined();
   });
 
   test('shows default message on error', function() {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       condition: () => false
     }));
 
@@ -42,7 +42,7 @@ describe('invariant', function() {
     expect(result.value[0]).toBe('Value invariant violation');
   });
   test('disallow truthy values by default', function() {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       condition: () => 'string'
     }));
 
@@ -51,7 +51,7 @@ describe('invariant', function() {
   });
 
   test('explicity allow truthy values', function() {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       allowTruthy: true,
       condition: () => 'string'
     }));
@@ -60,7 +60,7 @@ describe('invariant', function() {
   });
 
   test('shows custom message on error', function() {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       condition: () => false,
       message: 'my message'
     }));
@@ -70,8 +70,8 @@ describe('invariant', function() {
   });
 
   test('valid check', function() {
-    const result = validate(createValue('random'), createCheck({
-      condition: value => value === 'random'
+    const result = validate(createValue('foo'), createCheck({
+      condition: value => value === 'foo'
     }));
 
     expect(result).toBeUndefined();

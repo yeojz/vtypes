@@ -21,12 +21,12 @@ describe('array', function() {
   });
 
   test('does not run', function() {
-    const result = validate(createValue('random'), createCheck(false));
+    const result = validate(createValue('foo'), createCheck(false));
     expect(result).toBeUndefined();
   });
 
   test('incorrect type', function() {
-    const result = validate(createValue('random'), createCheck(true));
+    const result = validate(createValue('foo'), createCheck(true));
     expect(result.value).toHaveLength(1);
     expect(result.value[0]).toBe('Value must be of type array');
   });

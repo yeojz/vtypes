@@ -20,5 +20,5 @@ function condition(value, opt, key, attributes) {
 
 export default createAttrBasedValidator(
   condition,
-  'required when %{oAttribute} is not present or equal to %{oAttributeValue}'
+  'required when %{attribute} is not present or equal to %{attributeValue}'
 );

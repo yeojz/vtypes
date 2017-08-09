@@ -32,18 +32,18 @@ describe('shape', function() {
   });
 
   test('does not run', function() {
-    const result = validate(createValue('random'), createCheck(false));
+    const result = validate(createValue('foo'), createCheck(false));
     expect(result).toBeUndefined();
   });
 
   test('ensures that "values" field is available in configuration', function () {
-    const result = validate(createValue('random'), createCheck(true));
+    const result = validate(createValue('foo'), createCheck(true));
     expect(result.value).toHaveLength(1);
     expect(result.value[0]).toEqual({_message: 'Value is not of type object'});
   });
 
   test('incorrect non-object value', function () {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       values: defaultCheckObject
     }));
     expect(result.value).toHaveLength(1);

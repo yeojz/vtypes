@@ -26,18 +26,18 @@ describe('arrayOf', function() {
   });
 
   test('does not run', function() {
-    const result = validate(createValue('random'), createCheck(false));
+    const result = validate(createValue('foo'), createCheck(false));
     expect(result).toBeUndefined();
   });
 
   test('ensures that "values" field is available in configuration', function () {
-    const result = validate(createValue('random'), createCheck(true));
+    const result = validate(createValue('foo'), createCheck(true));
     expect(result.value).toHaveLength(1);
     expect(result.value[0]).toEqual({_message: 'Value is not of type array'});
   });
 
   test('incorrect non-array value', function () {
-    const result = validate(createValue('random'), createCheck({
+    const result = validate(createValue('foo'), createCheck({
       contains: defaultCheckObject
     }));
     expect(result.value).toHaveLength(1);

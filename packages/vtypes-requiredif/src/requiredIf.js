@@ -2,11 +2,9 @@ import validate from 'validate.js';
 import {createAttrBasedValidator} from 'vtypes-utils';
 
 function condition(value, opt, key, attributes) {
-  const otherValue = validate.getDeepObjectValue(attributes, opt.attribute);
 
-  const hasValue = opt.allowTruthy
-    ? !!otherValue
-    : validate.isDefined(otherValue);
+  const hasValue = opt.allowTruthy ? !!value : validate.isDefined(value);
+  const otherValue = validate.getDeepObjectValue(attributes, opt.attribute);
 
   if (opt.hasOwnProperty('attributeValue')) {
     return otherValue === opt.attributeValue ? hasValue : true;
@@ -21,5 +19,5 @@ function condition(value, opt, key, attributes) {
 
 export default createAttrBasedValidator(
   condition,
-  'required when %{attribute} is present and equal to %{attributeValue}'
+  'is required when %{attribute} is present and equal to %{attributeValue}'
 );

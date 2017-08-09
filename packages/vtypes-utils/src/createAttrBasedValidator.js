@@ -6,12 +6,13 @@ function createAttrBasedValidator(condition, message) {
     const opt = Object.assign(
       {
         allowTruthy: false,
+        symbolForAny: '*',
         message
       },
       options
     );
 
-    if (typeof opt.attribute === 'string' && opt.attribute) {
+    if (typeof opt.attribute !== 'string' || !opt.attribute) {
       validate.error(`Attribute ${key} has a falsy or non-string as it's "attribute" option`);
       return prettify('has an invalid validator', key);
     }
@@ -22,7 +23,7 @@ function createAttrBasedValidator(condition, message) {
 
     return prettify(opt.message, key, {
       attribute: validate.prettify(opt.attribute) || '',
-      attributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : ''
+      attributeValue: validate.isDefined(opt.attributeValue) ? opt.attributeValue : opt.symbolForAny
     });
   }
 
