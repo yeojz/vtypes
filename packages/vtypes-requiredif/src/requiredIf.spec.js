@@ -35,7 +35,7 @@ describe('requiredIf', function() {
       attribute: 'other'
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value is required when other is present and equal to *');
+    expect(result.value[0]).toEqual('Value is required when other is present with *');
   });
 
   test('incorrect input, attribute value defined', function() {
@@ -44,7 +44,7 @@ describe('requiredIf', function() {
       attributeValue: 'bar'
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value is required when other is present and equal to bar');
+    expect(result.value[0]).toEqual('Value is required when other is present with bar');
   });
 
   test('correct input, when attribute is nil', function() {
@@ -70,12 +70,29 @@ describe('requiredIf', function() {
     expect(result).toBeUndefined();
   });
 
+  test('incorrect input, custom comparator', function() {
+    const result = validate(createValue(void 0, 'bar'), createCheck({
+      attribute: 'other',
+      comparator: () => true
+    }));
+    expect(result.value).toHaveLength(1);
+    expect(result.value[0]).toEqual('Value is required when other is present with *');
+  });
+
+  test('correct input, custom comparator', function() {
+    const result = validate(createValue(void 0, 'bar'), createCheck({
+      attribute: 'other',
+      comparator: () => false
+    }));
+    expect(result).toBeUndefined();
+  });
+
   test('incorrect input, when not truthy', function() {
     const result = validate(createValue(void 0, 0), createCheck({
       attribute: 'other'
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value is required when other is present and equal to *');
+    expect(result.value[0]).toEqual('Value is required when other is present with *');
   });
 
   test('correct input, when truthy', function() {
@@ -92,7 +109,7 @@ describe('requiredIf', function() {
       attribute: 'other'
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value is required when other is present and equal to *');
+    expect(result.value[0]).toEqual('Value is required when other is present with *');
   });
 
   test('allow symbol for any to be changed', function() {
@@ -101,6 +118,6 @@ describe('requiredIf', function() {
       symbolForAny: 'any'
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value is required when other is present and equal to any');
+    expect(result.value[0]).toEqual('Value is required when other is present with any');
   });
 });

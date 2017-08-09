@@ -6,6 +6,10 @@ function condition(value, opt, key, attributes) {
   const hasValue = opt.allowTruthy ? !!value : validate.isDefined(value);
   const otherValue = validate.getDeepObjectValue(attributes, opt.attribute);
 
+  if (opt.hasOwnProperty('comparator') && typeof opt.comparator === 'function') {
+    return opt.comparator(value, otherValue) ? hasValue : true;
+  }
+
   if (opt.hasOwnProperty('attributeValue')) {
     return otherValue === opt.attributeValue ? hasValue : true;
   }
@@ -19,5 +23,5 @@ function condition(value, opt, key, attributes) {
 
 export default createAttrBasedValidator(
   condition,
-  'is required when %{attribute} is present and equal to %{attributeValue}'
+  'is required when %{attribute} is present with %{attributeValue}'
 );

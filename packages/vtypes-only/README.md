@@ -25,7 +25,7 @@ $ npm i --save vtypes-only
 
 ```js
 const validate = require('validate.js');
-const objectOf = require('vtypes-only');
+const only = require('vtypes-only');
 
 // you can then proceed to register the required validators.
 validate.validators.only = only;
@@ -59,7 +59,7 @@ const constraints = {
 };
 
 validate(value, constraints);
-// {attr: ['Value must be the only key with value present. Other attributes (v2, v3) should not be present']}
+// {attr: ['Attr must be the only key with value present. Other attributes (v2, v3) should not be present']}
 
 ```
 
