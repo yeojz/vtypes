@@ -30,7 +30,14 @@ describe('requiredIf', function() {
     expect(result.value[0]).toEqual('Value has an invalid validator');
   });
 
-  test('incorrect input, no attribute value defined', function() {
+  test('no object', function() {
+    const result = validate({}, createCheck({
+      attribute: 'other'
+    }));
+    expect(result).toBeUndefined();
+  });
+
+  test('no attribute value defined, condition true', function() {
     const result = validate(createValue(void 0, 'bar'), createCheck({
       attribute: 'other'
     }));
@@ -38,7 +45,7 @@ describe('requiredIf', function() {
     expect(result.value[0]).toEqual('Value is required when other is present with *');
   });
 
-  test('incorrect input, attribute value defined', function() {
+  test('attribute value defined, condition true', function() {
     const result = validate(createValue(void 0, 'bar'), createCheck({
       attribute: 'other',
       attributeValue: 'bar'
@@ -47,14 +54,14 @@ describe('requiredIf', function() {
     expect(result.value[0]).toEqual('Value is required when other is present with bar');
   });
 
-  test('correct input, when attribute is nil', function() {
+  test('attribute is null', function() {
     const result = validate(createValue(void 0, null), createCheck({
       attribute: 'other'
     }));
     expect(result).toBeUndefined();
   });
 
-  test('correct input, attribute value defined, and condition true', function() {
+  test('attribute value defined, and condition true', function() {
     const result = validate(createValue('foo', 'bar'), createCheck({
       attribute: 'other',
       attributeValue: 'bar'
@@ -62,7 +69,7 @@ describe('requiredIf', function() {
     expect(result).toBeUndefined();
   });
 
-  test('correct input, attribute value defined, and condition false', function() {
+  test('attribute value defined, and condition false', function() {
     const result = validate(createValue(void 0, 'bar'), createCheck({
       attribute: 'other',
       attributeValue: 'foo'
@@ -70,7 +77,7 @@ describe('requiredIf', function() {
     expect(result).toBeUndefined();
   });
 
-  test('incorrect input, custom comparator', function() {
+  test('custom comparator, condition true', function() {
     const result = validate(createValue(void 0, 'bar'), createCheck({
       attribute: 'other',
       comparator: () => true
@@ -79,7 +86,7 @@ describe('requiredIf', function() {
     expect(result.value[0]).toEqual('Value is required when other is present with *');
   });
 
-  test('correct input, custom comparator', function() {
+  test('custom comparator, condition false', function() {
     const result = validate(createValue(void 0, 'bar'), createCheck({
       attribute: 'other',
       comparator: () => false
@@ -87,7 +94,7 @@ describe('requiredIf', function() {
     expect(result).toBeUndefined();
   });
 
-  test('incorrect input, when not truthy', function() {
+  test('when not truthy, condition false', function() {
     const result = validate(createValue(void 0, 0), createCheck({
       attribute: 'other'
     }));
@@ -95,7 +102,7 @@ describe('requiredIf', function() {
     expect(result.value[0]).toEqual('Value is required when other is present with *');
   });
 
-  test('correct input, when truthy', function() {
+  test('when truthy, condition false', function() {
     const result = validate(createValue(void 0, 0), createCheck({
       allowTruthy: true,
       attribute: 'other'
@@ -103,7 +110,7 @@ describe('requiredIf', function() {
     expect(result).toBeUndefined();
   });
 
-  test('incorrect input, when truthy', function() {
+  test('when truthy, condition true', function() {
     const result = validate(createValue(void 0, 1), createCheck({
       allowTruthy: true,
       attribute: 'other'
