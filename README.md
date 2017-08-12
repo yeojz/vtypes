@@ -5,6 +5,7 @@
 [![npm package][npm-badge]][npm-link]
 [![Build Status][build-badge]][build-link]
 [![Coverage Status][codecov-badge]][codecov-link]
+[![vtypes][vtypes-badge]][repository]
 
 - [Overview](#overview)
 - [Build Formats](#build-formats)
@@ -26,6 +27,10 @@ certain data patterns / data types.
   -   [vtypes][vtypes]
   -   [vtypes-register][vtypes-register]
   -   [per module format](https://www.npmjs.com/browse/keyword/vtypes-modularized)
+
+All packages by default exposes a module in `commonjs` format.
+However, a `umd` bundle is also available within each package if you prefer that.
+i.e. Instead of `require('vtypes-*')` use `require('vtypes-*/umd')`.
 
 ## Validators
 For more information, do check their individual `README.md` in their respective folders.
@@ -105,5 +110,6 @@ The following validators are inspired from the built-in validation rules of [Lar
 [requiredWithout]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-requiredwithout
 [requiredWithoutAll]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-requiredwithoutall
 
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
 [repository]: https://github.com/yeojz/vtypes
 [license]: https://github.com/yeojz/vtypes/blob/master/LICENSE

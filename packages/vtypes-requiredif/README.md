@@ -3,6 +3,7 @@
 > "Required If" validator for validate.js
 
 [![npm package][npm-badge]][npm-link]
+[![vtypes][vtypes-badge]][repository]
 
 - [About](#about)
 - [Installation](#installation)
@@ -12,7 +13,7 @@
 
 ## About
 
-The `requiredIf` validator attempts to make sure the input is present
+The `requiredIf` validator attempts to ensure that the input is present
 and not empty when another field is present / equal to any predefined value.
 
 ## Installation
@@ -68,12 +69,12 @@ For more examples, check out the test files in this package's [source][src] fold
 
 | name           | type     | default                                    | description                                                                         |
 | -------------- | -------- | ------------------------------------------ | ----------------------------------------------------------------------------------- |
-| truthy    | boolean  | false                                      | Checks for truthy values instead of checking only for `null` and `undefined` values |
 | attribute      | string   |                                            | The attribute key that you want to check                                            |
 | attributeValue | string   |                                            | When set, the value of the attribute should equal to this                           |
 | comparator     | function |                                            | custom comparison method. In the event target value is of a complex type            |
 | message        | string   | `is required when %{attribute} is present` | Error message                                                                       |
 | symbolForAny   | string   | *                                          | symbol to use when no `attributeValue` is defined                                   |
+| truthy         | boolean  | false                                      | Checks for truthy values instead of checking only for `null` and `undefined` values |
 
 ## License
 
@@ -82,5 +83,6 @@ For more examples, check out the test files in this package's [source][src] fold
 [npm-badge]: https://img.shields.io/npm/v/vtypes-requiredif.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes-requiredif
 [repository]: https://github.com/yeojz/vtypes
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
 [license]: https://github.com/yeojz/vtypes/blob/master/LICENSE
 [src]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-requiredif/src

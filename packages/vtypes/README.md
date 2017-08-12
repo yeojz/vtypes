@@ -5,14 +5,15 @@
 [![npm package][npm-badge]][npm-link]
 [![Build Status][build-badge]][build-link]
 [![Coverage Status][codecov-badge]][codecov-link]
+[![vtypes][vtypes-badge]][repository]
 
-- [Overview](#overview)
+- [About](#about)
 - [Build Formats](#build-formats)
 - [Usage](#usage)
 - [Validators](#validators)
 - [License](#license)
 
-## Overview
+## About
 
 `vtypes` is built on top of `validate.js`, providing additional validation rules for
 certain data patterns / data types.
@@ -94,10 +95,12 @@ see the [package repository][repository] for more details.
 
 [npm-badge]: https://img.shields.io/npm/v/vtypes.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes
+[repository]: https://github.com/yeojz/vtypes
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
+[license]: https://github.com/yeojz/vtypes/blob/master/LICENSE
 
 [build-badge]: https://img.shields.io/circleci/project/github/yeojz/vtypes/master.svg?style=flat-square
 [build-link]: https://circleci.com/gh/yeojz/vtypes.svg
-
 [codecov-badge]: https://img.shields.io/codecov/c/github/yeojz/vtypes/master.svg?style=flat-square
 [codecov-link]: https://codecov.io/gh/yeojz/vtypes
 
@@ -120,6 +123,3 @@ see the [package repository][repository] for more details.
 [requiredWithAll]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-requiredwithall
 [requiredWithout]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-requiredwithout
 [requiredWithoutAll]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-requiredwithoutall
-
-[repository]: https://github.com/yeojz/vtypes
-[license]: https://github.com/yeojz/vtypes/blob/master/LICENSE

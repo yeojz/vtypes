@@ -36,11 +36,10 @@ function build(bundlerOpt) {
         'validate.js': 'validate'
       };
 
-      destFile = 'index.' + config.format + '.js';
+      destFile = config.format + '.js';
     }
 
     config.dest = path.join(PACKAGE_DIR, pkg, destFile);
-
     bundler(config, bundlerOpt);
   });
 }

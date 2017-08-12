@@ -44,7 +44,7 @@ describe('requiredWithout', function() {
       attributes: ['other']
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value required when any of these attributes (other) are not present');
+    expect(result.value[0]).toEqual('Value is required when any of these attributes (other) are not present');
   });
 
   test('single attribute, condition true', function() {
@@ -59,7 +59,7 @@ describe('requiredWithout', function() {
       attributes: ['other', 'other2']
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value required when any of these attributes (other, other2) are not present');
+    expect(result.value[0]).toEqual('Value is required when any of these attributes (other, other2) are not present');
   });
 
   test('multi attribute, all filled, condition false', function() {
@@ -90,7 +90,7 @@ describe('requiredWithout', function() {
     }));
 
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value required when any of these attributes (other, other2) are not present');
+    expect(result.value[0]).toEqual('Value is required when any of these attributes (other, other2) are not present');
   });
 
   test('truthy, multi attribute, all filled, condition true', function() {

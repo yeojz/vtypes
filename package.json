@@ -11,6 +11,7 @@
     "build": "node ./scripts/build-cli.js",
     "build:es5": "node ./scripts/build-cli.js --babel",
     "build:browser": "node ./scripts/build-cli.js --babel --format=umd",
+    "build:release": "npm run clean && npm run build:es5 && npm run build:browser",
     "clean": "rimraf coverage lerna-debug.log && lerna run clean",
     "coverage": "jest --coverage",
     "coverage:upload": "codecov",

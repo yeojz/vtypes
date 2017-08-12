@@ -3,6 +3,7 @@
 > "different" validation for validate.js
 
 [![npm package][npm-badge]][npm-link]
+[![vtypes][vtypes-badge]][repository]
 
 - [About](#about)
 - [Installation](#installation)
@@ -76,5 +77,6 @@ For more examples, check out the test files in this package's [source][src] fold
 [npm-badge]: https://img.shields.io/npm/v/vtypes-different.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes-different
 [repository]: https://github.com/yeojz/vtypes
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
 [license]: https://github.com/yeojz/vtypes/blob/master/LICENSE
 [src]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-different/src

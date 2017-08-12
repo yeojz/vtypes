@@ -3,6 +3,7 @@
 > invariant-style validation for validate.js
 
 [![npm package][npm-badge]][npm-link]
+[![vtypes][vtypes-badge]][repository]
 
 - [About](#about)
 - [Installation](#installation)
@@ -96,5 +97,6 @@ new validators by calling `invriant.create(condition, message)`, providing a con
 [npm-badge]: https://img.shields.io/npm/v/vtypes-invariant.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes-invariant
 [repository]: https://github.com/yeojz/vtypes
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
 [license]: https://github.com/yeojz/vtypes/blob/master/LICENSE
 [src]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-invariant/src

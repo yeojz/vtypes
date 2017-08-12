@@ -3,6 +3,7 @@
 > "json" validation for validate.js
 
 [![npm package][npm-badge]][npm-link]
+[![vtypes][vtypes-badge]][repository]
 
 - [About](#about)
 - [Installation](#installation)
@@ -12,7 +13,7 @@
 
 ## About
 
-The `json` validator attempts to make sure the input is a valid json.
+The `json` validator attempts to ensure that the input is a valid json.
 
 ## Installation
 
@@ -59,5 +60,6 @@ For more examples, check out the test files in this package's [source][src] fold
 [npm-badge]: https://img.shields.io/npm/v/vtypes-json.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes-json
 [repository]: https://github.com/yeojz/vtypes
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
 [license]: https://github.com/yeojz/vtypes/blob/master/LICENSE
 [src]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-json/src

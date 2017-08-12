@@ -3,6 +3,7 @@
 > "immutable" validator for validate.js
 
 [![npm package][npm-badge]][npm-link]
+[![vtypes][vtypes-badge]][repository]
 
 - [About](#about)
 - [Installation](#installation)
@@ -12,7 +13,7 @@
 
 ## About
 
-The `immutable` validator attempts to make sure the field is a valid immutable value.
+The `immutable` validator attempts to ensure that the field is a valid immutable value.
 The API for checking immutability is referenced off [immutable.js](https://github.com/facebook/immutable-js).
 
 If no parser is provided, then best effort guess if a value is immutable
@@ -77,5 +78,6 @@ For more examples, check out the test files in this package's [source][src] fold
 [npm-badge]: https://img.shields.io/npm/v/vtypes-immutable.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes-immutable
 [repository]: https://github.com/yeojz/vtypes
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
 [license]: https://github.com/yeojz/vtypes/blob/master/LICENSE
 [src]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-immutable/src

@@ -1,3 +1,4 @@
+/*eslint-disable no-console*/
 const build = require('./build');
 
 const FORMATS = [
@@ -19,7 +20,9 @@ const format = FORMATS.reduce((final, key) => {
     return key.split('=')[1];
   }
   return final;
-}, 'cjs')
+}, 'cjs');
+
+console.log('target format:', format);
 
 build({
   babel: args['--babel'],

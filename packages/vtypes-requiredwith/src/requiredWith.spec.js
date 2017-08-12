@@ -51,7 +51,7 @@ describe('requiredWith', function() {
       attributes: ['other']
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value required when any of these attributes (other) are present');
+    expect(result.value[0]).toEqual('Value is required when any of these attributes (other) are present');
   });
 
   test('multi attribute, some filled, condition true', function() {
@@ -59,7 +59,7 @@ describe('requiredWith', function() {
       attributes: ['other', 'other2']
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value required when any of these attributes (other, other2) are present');
+    expect(result.value[0]).toEqual('Value is required when any of these attributes (other, other2) are present');
   });
 
   test('multi attribute, all filled, condition true', function() {
@@ -67,7 +67,7 @@ describe('requiredWith', function() {
       attributes: ['other', 'other2']
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value required when any of these attributes (other, other2) are present');
+    expect(result.value[0]).toEqual('Value is required when any of these attributes (other, other2) are present');
   });
 
   test('has value, multi attribute, all filled, condition true', function() {
@@ -91,6 +91,6 @@ describe('requiredWith', function() {
       attributes: ['other', 'other2']
     }));
     expect(result.value).toHaveLength(1);
-    expect(result.value[0]).toEqual('Value required when any of these attributes (other, other2) are present');
+    expect(result.value[0]).toEqual('Value is required when any of these attributes (other, other2) are present');
   });
 });

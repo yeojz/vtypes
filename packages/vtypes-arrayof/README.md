@@ -3,6 +3,7 @@
 > "arrayOf" validation for validate.js
 
 [![npm package][npm-badge]][npm-link]
+[![vtypes][vtypes-badge]][repository]
 
 - [About](#about)
 - [Installation](#installation)
@@ -12,7 +13,7 @@
 
 ## About
 
-The `arrayOf` validator attempts to make sure the all values in the array
+The `arrayOf` validator attempts to ensure that all values in the array
 conforms to a predefined rule.
 
 ## Installation
@@ -82,7 +83,7 @@ For more examples, check out the test files in this package's [source][src] fold
 | formatter  | function | `(v) => v`                                          | Allows processing of errors before it returns |
 | message    | string   | `^One or more array values for %{key} is not valid` | Error message                                 |
 | messageKey | string   | `_message`                                          | key in return object for the summary message  |
-| notArray   | string   | `%{key} is not of type object`                      | Error when value is not an object             |
+| notArray   | string   | `%{key} is not of type array`                       | Error when value is not an object             |
 
 ## License
 
@@ -91,5 +92,6 @@ For more examples, check out the test files in this package's [source][src] fold
 [npm-badge]: https://img.shields.io/npm/v/vtypes-arrayof.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/vtypes-arrayof
 [repository]: https://github.com/yeojz/vtypes
+[vtypes-badge]: https://img.shields.io/badge/vtypes-repo-blue.svg?style=flat-square
 [license]: https://github.com/yeojz/vtypes/blob/master/LICENSE
 [src]: https://github.com/yeojz/vtypes/tree/master/packages/vtypes-arrayof/src
