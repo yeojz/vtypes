@@ -2,7 +2,7 @@ import invariant from './invariant';
 
 function create(condition, message) {
   const defaultOptions = {
-    allowNil: true,
+    presence: false,
     message
   }
 

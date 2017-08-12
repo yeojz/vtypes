@@ -3,7 +3,7 @@ import {createAttrBasedValidator} from 'vtypes-utils';
 
 function condition(value, opt, key, attributes) {
 
-  const hasValue = opt.allowTruthy ? !!value : validate.isDefined(value);
+  const hasValue = opt.truthy ? !!value : validate.isDefined(value);
   const otherValue = validate.getDeepObjectValue(attributes, opt.attribute);
 
   if (opt.hasOwnProperty('comparator') && typeof opt.comparator === 'function') {
@@ -14,7 +14,7 @@ function condition(value, opt, key, attributes) {
     return otherValue === opt.attributeValue ? hasValue : true;
   }
 
-  if (opt.allowTruthy) {
+  if (opt.truthy) {
     return otherValue ? hasValue : true;
   }
 

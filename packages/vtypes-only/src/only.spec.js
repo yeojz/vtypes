@@ -42,7 +42,7 @@ describe('only', function() {
       v2: 'foo'
     }
     const result = validate(obj, createCheck({
-      allowTruthy: true,
+      truthy: true,
       attributes
     }));
     expect(result).toBeUndefined();
@@ -68,7 +68,7 @@ describe('only', function() {
       v2: 0
     }
     const result = validate(obj, createCheck({
-      allowTruthy: true,
+      truthy: true,
       attributes
     }));
     expect(result).toBeUndefined();

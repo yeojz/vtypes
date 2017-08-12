@@ -3,7 +3,7 @@ import prettify from './prettify';
 
 function formatMessage(message, opt, key) {
   return prettify(message, key, {
-    attributes: validate.prettify(opt.attributes) || ''
+    attributes: validate.prettify(opt.attributes)
   });
 }
 
@@ -12,7 +12,7 @@ function createAttrArrayBasedValidator(condition, message) {
 
     const opt = Object.assign(
       {
-        allowTruthy: false,
+        truthy: false,
         notValidator: 'has an invalid validator',
         message
       },

@@ -19,5 +19,5 @@ function condition(value, options, key, attributes) {
 
 export default createAttrArrayBasedValidator(
   condition,
-  'required when ALL of these attributes (%{attributes}) are present'
+  'required when all of these attributes (%{attributes}) are present'
 );

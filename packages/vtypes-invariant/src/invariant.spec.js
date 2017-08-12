@@ -14,9 +14,9 @@ describe('invariant', function() {
     }
   });
 
-  test('allow nil = does not check for presence', function() {
+  test('presence false, does not check for presence', function() {
     const result = validate({}, createCheck({
-      allowNil: true
+      presence: false,
     }));
 
     expect(result).toBeUndefined();
@@ -52,7 +52,7 @@ describe('invariant', function() {
 
   test('explicity allow truthy values', function() {
     const result = validate(createValue('foo'), createCheck({
-      allowTruthy: true,
+      truthy: true,
       condition: () => 'string'
     }));
 

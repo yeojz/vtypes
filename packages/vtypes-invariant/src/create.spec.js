@@ -17,7 +17,7 @@ describe('create', function() {
     expect(invariant).toBeCalledWith(
       'test',
       {
-        allowNil: true,
+        presence: false,
         condition,
         message: 'my message'
       },

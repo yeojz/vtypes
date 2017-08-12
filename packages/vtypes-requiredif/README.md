@@ -68,7 +68,7 @@ For more examples, check out the test files in this package's [source][src] fold
 
 | name           | type     | default                                    | description                                                                         |
 | -------------- | -------- | ------------------------------------------ | ----------------------------------------------------------------------------------- |
-| allowTruthy    | boolean  | false                                      | Checks for truthy values instead of checking only for `null` and `undefined` values |
+| truthy    | boolean  | false                                      | Checks for truthy values instead of checking only for `null` and `undefined` values |
 | attribute      | string   |                                            | The attribute key that you want to check                                            |
 | attributeValue | string   |                                            | When set, the value of the attribute should equal to this                           |
 | comparator     | function |                                            | custom comparison method. In the event target value is of a complex type            |

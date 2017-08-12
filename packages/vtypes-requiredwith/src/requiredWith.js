@@ -1,5 +1,5 @@
 import validate from 'validate.js';
-import {createAttrBasedValidator} from 'vtypes-utils';
+import {createAttrArrayBasedValidator} from 'vtypes-utils';
 
 function condition(value, options, key, attributes) {
   const hasOnePresent = options.attributes.some(otherKey => {
@@ -14,7 +14,7 @@ function condition(value, options, key, attributes) {
   return true;
 }
 
-export default createAttrBasedValidator(
+export default createAttrArrayBasedValidator(
   condition,
   'required when any of these attributes (%{attributes}) are present'
 );

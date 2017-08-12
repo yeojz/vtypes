@@ -21,7 +21,7 @@ but for `validate.js`.
 
 **Note**: This validator will always be invoked by default.
 Thus it will check even when value is `undefined` or `null`.
-You can disable this behaviour by passing `allowNil: true`;
+You can disable this behaviour by passing `presence: false`;
 
 ## Installation
 
@@ -42,29 +42,32 @@ validate.validators.invariant = invariant;
 ## Usage
 
 ```js
-const constrants = {
+const constraints = {
   attr: {
-    condition: (value) => value === 'bar'
-  }
-}
-
-const alwaysRunConstrants = {
-  attr: {
-    allowNil: false,
     condition: (value) => value === 'bar'
   }
 }
 
 validate({}, constraints);
+// => {attr: ["Attr invariant violation"]}
+
+validate({attr: 'bar'}, constraints);
 // => undefined
 
 validate({attr: 'foo'}, constraints);
 // => {attr: ["Attr invariant violation"]}
+```
 
-validate({}, alwaysRunConstrants);
-// => {attr: ["Attr invariant violation"]}
 
-validate({attr: 'bar', constraints);
+```js
+const constrants = {
+  attr: {
+    presence: false,
+    condition: (value) => value === 'bar'
+  }
+}
+
+validate({}, constraints);
 // => undefined
 ```
 
@@ -72,12 +75,12 @@ For more examples, check out the test files in this package's [source][src] fold
 
 ## Available Options
 
-| name        | type     | default               | description                                                                      |
-| ----------- | -------- | --------------------- | -------------------------------------------------------------------------------- |
-| allowNil    | boolean  | `false`               | Error message                                                                    |
-| allowTruthy | boolean  | `false`               | Allow the conditional function to return truthy values instead of strict boolean |
-| condition   | function | `undefined`           | Returns a truthy value for validation to pass                                    |
-| message     | string   | `invariant violation` | Error message                                                                    |
+| name      | type     | default               | description                                                                      |
+| --------- | -------- | --------------------- | -------------------------------------------------------------------------------- |
+| condition | function | `undefined`           | Returns a truthy value for validation to pass                                    |
+| message   | string   | `invariant violation` | Error message                                                                    |
+| presence  | boolean  | `true`                | By default, runs even though value is undefined or null                          |
+| truthy    | boolean  | `false`               | Allow the conditional function to return truthy values instead of strict boolean |
 
 The `condition` function takes in `(value, key, attributes)` of the validator.
 

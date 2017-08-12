@@ -104,7 +104,7 @@ describe('requiredIf', function() {
 
   test('when truthy, condition false', function() {
     const result = validate(createValue(void 0, 0), createCheck({
-      allowTruthy: true,
+      truthy: true,
       attribute: 'other'
     }));
     expect(result).toBeUndefined();
@@ -112,7 +112,7 @@ describe('requiredIf', function() {
 
   test('when truthy, condition true', function() {
     const result = validate(createValue(void 0, 1), createCheck({
-      allowTruthy: true,
+      truthy: true,
       attribute: 'other'
     }));
     expect(result.value).toHaveLength(1);

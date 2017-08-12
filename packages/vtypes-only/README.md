@@ -69,7 +69,7 @@ For more examples, check out the test files in this package's [source][src] fold
 
 | name        | type    | default                                                                                | description                                                                         |
 | ----------- | ------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| allowTruthy | boolean | false                                                                                  | Checks for truthy values instead of checking only for `null` and `undefined` values |
+| truthy | boolean | false                                                                                  | Checks for truthy values instead of checking only for `null` and `undefined` values |
 | message     | string  | `must be the only key present. Other attributes (%{attributes}) should not be present` | Error message                                                                       |
 
 

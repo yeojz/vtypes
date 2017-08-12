@@ -46,6 +46,15 @@ describe('requiredUnless', function() {
     expect(result.value[0]).toEqual('Value is required when other is not present with *');
   });
 
+  test('has value, no attribute value defined, condition true', function() {
+    const result = validate(createValue('random', 'foo'), createCheck({
+      attribute: 'other',
+    }));
+
+    expect(result).toBeUndefined();
+  });
+
+
   test('no attribute value defined, condition false', function() {
     const result = validate(createValue(void 0, void 0), createCheck({
       attribute: 'other',
@@ -75,7 +84,7 @@ describe('requiredUnless', function() {
 
   test('when truthy, condition false', function() {
     const result = validate(createValue(void 0, 0), createCheck({
-      allowTruthy: true,
+      truthy: true,
       attribute: 'other'
     }));
 
@@ -85,7 +94,7 @@ describe('requiredUnless', function() {
 
   test('when truthy, condition true', function() {
     const result = validate(createValue(void 0, 1), createCheck({
-      allowTruthy: true,
+      truthy: true,
       attribute: 'other'
     }));
 
