@@ -1,6 +1,6 @@
 {
   "name": "vtypes-package",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Additional rules / contraints for validate.js to address other common data patterns",
   "main": "packages/vtypes",
   "repository": "git@github.com:yeojz/vtypes.git",
