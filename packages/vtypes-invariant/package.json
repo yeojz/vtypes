@@ -1,6 +1,6 @@
 {
   "name": "vtypes-invariant",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Additional constraints for validate.js",
   "main": "index.js",
   "repository": "https://github.com/yeojz/vtypes/tree/master/packages/vtypes-invariant",
