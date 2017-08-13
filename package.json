@@ -11,16 +11,17 @@
     "build": "node ./scripts/build-cli.js",
     "build:es5": "node ./scripts/build-cli.js --babel",
     "build:browser": "node ./scripts/build-cli.js --babel --format=umd",
-    "build:release": "npm run clean && npm run build:es5 && npm run build:browser",
     "clean": "rimraf coverage lerna-debug.log && lerna run clean",
     "coverage": "jest --coverage",
     "coverage:upload": "codecov",
     "lint": "eslint --ext js src",
     "reset": "lerna run reset",
+    "release:build": "npm run clean && npm run build:es5 && npm run build:browser",
     "start": "npm run build && npm run bootstrap",
     "watch": "node ./scripts/watch-cli.js",
     "test": "NODE_ENV=test jest",
-    "test:watch": "NODE_ENV=test jest --watch --coverage"
+    "test:watch": "NODE_ENV=test jest --watch --coverage",
+    "version": "./scripts/version.sh"
   },
   "keywords": [
     "validate",

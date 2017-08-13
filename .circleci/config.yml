@@ -1,7 +1,7 @@
 version: 2
 jobs:
   test:
-    working_directory: ~/vtypes
+    working_directory: ~/vtypes/test
     docker:
       - image: circleci/node:6.11.1
     steps:
@@ -16,13 +16,39 @@ jobs:
       - run: npm run bootstrap
       - run: npm run clean
       - run: npm run build
-      - run: npm run coverage
       - run: npm run lint
+      - run: npm run coverage
+      - run: npm run coverage:upload
       - store_artifacts:
           path: coverage
           prefix: coverage
+  deploy:
+    working_directory: ~/vtypes/deploy
+    docker:
+      - image: circleci/node:6.11.1
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run bootstrap
+      - run: npm run release:build
+      - run: echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
+      - run: lerna publish --force-publish=* --skip-git --yes
 workflows:
   version: 2
-  test:
+  test-and-deploy:
     jobs:
       - test
+      # - deploy:
+      #     requires:
+      #       - test
+      #     filters:
+      #       tags:
+      #         only: /^v[0-9]+(\.[0-9]+)*$/
+      #       branches:
+      #         ignore: /.*/
